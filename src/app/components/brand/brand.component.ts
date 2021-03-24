@@ -8,8 +8,10 @@ import { BrandService } from 'src/app/services/brand.service';
   styleUrls: ['./brand.component.css']
 })
 export class BrandComponent implements OnInit {
-  brands:Brand[]=[]
+  brands:Brand[]=[];
+  currentBrand:Brand;
   dataLoaded=false;
+
   constructor(private brandService:BrandService) { }
 
   ngOnInit(): void {
@@ -22,6 +24,17 @@ export class BrandComponent implements OnInit {
     })
   
   }
+  setCurrentBrand(brand:Brand){
+    this.currentBrand=brand;
+  }
+  getCurrenBrandClass(brand:Brand){
+    if(brand==this.currentBrand){
+      return "list-group-item active"
+    }else{
+      return "list-group-item"
+    }
+  }
+ 
 }
 
 
