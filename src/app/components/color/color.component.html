@@ -1,8 +1,22 @@
-<h5>Renkler</h5>
-<ul  class="list-group">
-    <li (click)="setCurrentColor(color)" 
-    *ngFor="let color of colors" 
-    routerLink="cars/color/{{color.colorId}}"
-    [class]="getCurrenColorClass(color)">{{color.colorName}}</li>
+<div>
+  <div class="mb-3">
+    <input
+      type="text"
+      [(ngModel)]="filterText"
+      class="form-control"
+      id="filterText"
+      placeholder="renk giriniz"
+    />
+  </div>
+  <h5>Renkler</h5>
+  <ul class="list-group">
+    <li
+      (click)="setCurrentColor(color)"
+      *ngFor="let color of colors | filterColor:filterText"
+      routerLink="cars/color/{{ color.colorId }}"
+      [class]="getCurrenColorClass(color)"
+    >
+      {{ color.colorName }}
+    </li>
   </ul>
-  <h5 *ngIf="currentColor">{{currentColor.colorName}} seçtiniz</h5>
+</div>

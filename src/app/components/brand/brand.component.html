@@ -1,8 +1,22 @@
-<h5>Markalar</h5>
-<ul class="list-group">
-    <li (click)="setCurrentBrand(brand)" 
-    routerLink="/cars/brand/{{brand.brandId}}" 
-    *ngFor="let brand of brands" 
-     [class]="getCurrenBrandClass(brand)">{{brand.brandName}}</li>
+<div style="margin-bottom: 2rem">
+  <div class="mb-3">
+    <input
+      type="text"
+      [(ngModel)]="filterText"
+      class="form-control"
+      id="filterText"
+      placeholder="marka giriniz"
+    />
+  </div>
+  <h5>Markalar</h5>
+  <ul class="list-group">
+    <li
+      (click)="setCurrentBrand(brand)"
+      routerLink="/cars/brand/{{ brand.brandId }}"
+      *ngFor="let brand of brands | filterBrand: filterText"
+      [class]="getCurrenBrandClass(brand)"
+    >
+      {{ brand.brandName }}
+    </li>
   </ul>
-  <h5 *ngIf="currentBrand">{{currentBrand.brandName}} seçtiniz</h5>
+</div>
