@@ -1,4 +1,4 @@
-<div *ngIf="dataLoaded==false" class="spinner-border text-dark" role="status">
+<!-- <div *ngIf="dataLoaded==false" class="spinner-border text-dark" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
   <table class="table">
@@ -19,4 +19,40 @@
         <td>{{rentaldetail.rentDate}}</td>
         <td>{{rentaldetail.returnDate}}</td>
     </tr>
-</table>
+</table> -->
+
+
+    <div class="card" style="width: 100%; height: 25rem;">
+      <div style="background-color:#ffc107; height: 1rem;" class="card-header"> </div>
+      <div class="card-body">
+        <div style="margin-bottom: 1rem;">
+          <label>Başlagıç Tarihi</label>
+          <input min="{{ getDate(1) }}" value="{{ getDate(1) }}"  [(ngModel)]="rentDate" type="date" class="form-control">
+        </div>
+        <div style="margin-bottom: 1rem;">
+          <label>Bitiş Tarihi</label>
+          <input min="{{ getDate(2) }}" value="{{ getDate(2) }}"
+          [(ngModel)]="returnDate" type="date" class="form-control">
+        </div>
+        <div style="margin-bottom: 1rem;">
+          <label>Müşteri Adı</label>
+          <select class="form-select" 
+               [(ngModel)]="customerId" aria-label="Default select example">
+            <option *ngFor="let customer of customers" [value]="customer.customerId" [value]="customer.customerId">{{customer.customerId}}</option>     
+          </select>
+        </div>
+        <div  style="margin-bottom: 1rem;" >
+          <button
+          *ngFor ="let carDetail of carDetails"
+          (click)="addRental(carDetail)"
+          style="background-color: #ffc107;width: 100%; " 
+          type="button"
+         
+         >
+           Kirala
+        </button>
+        </div>
+      </div>
+      <div style="background-color:#ffc107 ; height: 3rem;" class="card-footer"> </div>
+    </div>
+  

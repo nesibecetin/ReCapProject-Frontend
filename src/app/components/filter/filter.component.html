@@ -2,14 +2,12 @@
     <div class="col-md-3">
   
       <select [(ngModel)]="brandFilter" aria-placeholder="marka seç" class="form-select" aria-label="Default select example">  
-        <option selected>marka seç</option>
         <option selected="{{setCurrentBrand(brand.brandId)}}" *ngFor="let brand of brands" [value]="brand.brandId">{{brand.brandName}}</option>     
       </select>
   
     </div>
     <div class="col-md-3">
       <select [(ngModel)]="colorFilter" class="form-select" aria-label="Default select example">
-        <option selected >renk seç</option>
         <option selected="setCurrentColor(color.colorId)" *ngFor="let color of colors" [value]="color.colorId">{{color.colorName}}</option>
        
       </select>
