@@ -35,6 +35,7 @@
         <th>Renk Adı</th>
         <th>Günlük Fiyat</th>
         <th>Araç Açıklaması</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -44,6 +45,7 @@
         <td>{{ carDetail.colorName }}</td>
         <td>{{ carDetail.dailyPrice }}</td>
         <td>{{ carDetail.description }}</td>
+        <td><button type="type" routerLink="/car/edit/{{carDetail.carId}}"  class="btn btn-warning">Güncelle</button></td>
       </tr>
     </tbody>
   </table>

@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header">Araç Ekle</div>
+  <div class="card-body">
+    <form [formGroup]="imageAddForm">
+      <div class="mb-3">
+        <label for="carId">Araba Seçiniz</label>
+        <select
+          id="carId"
+          class="form-select"
+          aria-label="Default select example"
+          formControlName="carId"
+        >
+          <option [ngValue]="car.carId" *ngFor="let car of carDetails">
+            {{ car.carName }} {{ car.brandName }}
+          </option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="imageFile">Resim Seçin</label>
+        <div class="form-group">
+          <input
+            type="file"
+            (change)="onFileChanged($event)"
+            class="form-control"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-fill btn-warning" (click)="addImage()">Ekle</button>
+  </div>
+</div>
+
+

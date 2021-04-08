@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-header">Marka Ekle</div>
+  <div class="card-body">
+    <form [formGroup]="brandAddForm">
+      <div class="mb-3">
+        <label for="brandName" class="form-label">Marka Adı</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="brandName"
+          id="brandName"
+          placeholder="marka adı"
+          [ngClass]="{
+            'is-invalid': form.brandName.touched || form.brandName.dirty
+          }"
+        />
+        <div *ngIf="form.brandName.errors" class="invalid-feedback">
+          <div *ngIf="form.brandName.errors.required">
+            Marka Adı Zorunludur.
+          </div>
+          <div *ngIf="form.brandName.errors.minlength">
+            En az üç karakter olmalıdır.
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer text-muted">
+    <button type="type" (click)="addBrand()" class="btn btn-warning">
+      Ekle
+    </button>
+  </div>
+</div>

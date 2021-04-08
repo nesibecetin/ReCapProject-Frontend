@@ -1,24 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NaviComponent } from './components/navi/navi.component';
-import { CarComponent } from './components/car/car.component';
-import { ColorComponent } from './components/color/color.component';
-import { BrandComponent } from './components/brand/brand.component';
+import { CarComponent } from './components/car-components/car/car.component';
+import { ColorComponent } from './components/color-component/color/color.component';
+import { BrandComponent } from './components/brand-component/brand/brand.component';
 import { RentalComponent } from './components/rental/rental.component';
-import { HttpClientModule } from '@angular/common/http';
 import { CustomerComponent } from './components/customer/customer.component';
-import { CarDetailsComponent } from './components/car-details/car-details.component';
+import { CarDetailsComponent } from './components/car-components/car-details/car-details.component';
 import { FilterBrandPipe } from './pipes/filter-brand.pipe';
 import { FilterColorPipe } from './pipes/filter-color.pipe';
 import { FilterComponent } from './components/filter/filter.component';
 import { PaymentComponent } from './components/payment/payment.component';
-
 import { ToastrModule } from 'ngx-toastr';
+import { ColorAddComponent } from './components/color-component/color-add/color-add.component';
+
+import { BrandAddComponent } from './components/brand-component/brand-add/brand-add.component';
+import { CarAddComponent } from './components/car-components/car-add/car-add.component';
+import { ImageAddComponent } from './components/car-components/image-add/image-add.component';
+import { CarEditComponent } from './components/car-components/car-edit/car-edit.component';
+import { BrandEditComponent } from './components/brand-component/brand-edit/brand-edit.component';
+import { ColorEditComponent } from './components/color-component/color-edit/color-edit.component';
 
 @NgModule({
   declarations: [
@@ -33,13 +40,22 @@ import { ToastrModule } from 'ngx-toastr';
     FilterBrandPipe,
     FilterColorPipe,
     FilterComponent,
-    PaymentComponent
+    PaymentComponent,
+    ColorAddComponent,
+    BrandAddComponent,
+    CarAddComponent,
+    ImageAddComponent,
+    CarEditComponent,
+    BrandEditComponent,
+    ColorEditComponent
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule, 
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"

@@ -21,7 +21,6 @@ export class CarDetailsComponent implements OnInit {
 
   path = 'https://localhost:44360/Images/';
   constructor(
-    private carService: CarService,
     private carDetailsService: CarDetailsService,
     private carImageService: CarImageService,
     private activatedRoute: ActivatedRoute,
