@@ -11,6 +11,7 @@ import { AccountService } from 'src/app/services/account.service';
 import { RentalService } from 'src/app/services/rental.service';
 import { CustomerService } from 'src/app/services/customer.service';
 import { Card } from 'src/app/models/card';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-payment',
@@ -23,7 +24,7 @@ export class PaymentComponent implements OnInit {
   customer: Customer;
   carDetail: CarDetails;
   customerId: number;
-  account: Account;
+  account: Account[]=[];
   card: Account;
   amountOfPayment: number = 0;
   accountNumber: bigint;
@@ -33,6 +34,7 @@ export class PaymentComponent implements OnInit {
   cvv: number;
   balance: number;
   accountId: number;
+  
 
   constructor(
     private formBuilder: FormBuilder,
@@ -65,6 +67,9 @@ export class PaymentComponent implements OnInit {
         this.paymentCalculator();
       });
   }
+  
+    
+  
   getAccountDetailById() {
     this.accountService
       .getAccountById(this.rental.customerId)
@@ -103,26 +108,44 @@ export class PaymentComponent implements OnInit {
       balance: this.card.balance,
       customerId: this.rental.customerId,
     };
-
-    if (this.card.balance >= this.amountOfPayment) {
-      this.card.balance = this.card.balance - this.amountOfPayment;
-      account.balance = this.card.balance;
-
-      console.log(this.card.balance);
-      this.accountService.updateAccount(account).subscribe((response) => {
-        this.rentalService.addRental(this.rental).subscribe((res) => {
-          this.toastrService.success(response.message, 'başarılı');
-          this.toastrService.success(res.message, 'başarılı');
+   
+    if(this.card.month===this.month &&this.card.year === this.year&&this.card.accountNumber===this.accountNumber&&
+      this.card.cvv===this.cvv&&this.card.name===this.name){
+      if (this.card.balance >= this.amountOfPayment) {
+        this.card.balance = this.card.balance - this.amountOfPayment;
+        account.balance = this.card.balance;
+  
+        console.log(this.card.balance);
+        this.accountService.updateAccount(account).subscribe((response) => {
+          this.rentalService.addRental(this.rental).subscribe((res) => {
+            this.toastrService.success(response.message, 'başarılı');
+            this.toastrService.success(res.message, 'başarılı');
+          });
         });
-      });
+  
+        console.log(this.rental);
+      } else {
+        console.log(this.card.balance);
+        this.toastrService.error(
+          'Kartınızda yeterli bakiye bulunmamaktadır.',
+          'Hata'
+        );
+      }
 
-      console.log(this.rental);
-    } else {
-      console.log(this.card.balance);
-      this.toastrService.error(
-        'Kartınızda yeterli bakiye bulunmamaktadır.',
-        'Hata'
-      );
     }
+    else{
+      console.log("bilgiler onaylanmdaı.")
+    }
+    
+      
+
+    
+    
+     
+
+    
+    
+
+    
   }
 }
