@@ -1,3 +1,4 @@
+import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -17,15 +18,12 @@ export class RentalComponent implements OnInit {
   rentals:Rental[]=[];
   dataLoaded = false;
   customers: Customer[] = [];
-  carDetails: CarDetails[];
-  cars:Car;
- 
-  
-
-  carId: number;
+  carDetails: CarDetails[]=[];
+  @Input() carDetail:CarDetails;
   customerId: number;
   rentDate: Date;
   returnDate: Date;
+
   constructor(private rentalService:RentalService,
     private customerService: CustomerService,
     private toastrService: ToastrService,
@@ -53,24 +51,26 @@ export class RentalComponent implements OnInit {
     return today.toISOString().slice(0, 10);
   }
 
-  addRental(car:CarDetails) {
+  addRental() {
     if (this.returnDate < this.rentDate) {
       this.toastrService.error(
         'Kiralama tarihi dönüş tarihinden büyük olamaz.'
       );
     } else {
       let rental: Rental = {
-        carId: car.carId,
+        carId:this.carDetail.carId,
         customerId: parseInt(this.customerId.toString()),
         rentDate: this.rentDate,
         returnDate: this.returnDate,
       };
-      this.rentalService.addRental(rental).subscribe((response) => {
+      
+      console.log(rental);
+      
         
-        this.router.navigate(['/payment', JSON.stringify(rental)]);
-        this.toastrService.success('Kiralama işlemi Başarılı');
+        this.router.navigate(['/payment/', JSON.stringify(rental)]);
+        this.toastrService.info('Ödeme Sayfasına Yönlendiriliyorsunuz.');
         
-      });
+     
       
     }
   }

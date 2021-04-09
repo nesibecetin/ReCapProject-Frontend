@@ -1,1 +1,65 @@
-<p>payment works!</p>
+<div >
+    <h5>Ödeme İşlemleri</h5>
+    
+      <div class="mb-3">
+        <label for="name" class="form-label">Kart Üzerindeki Ad</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="name"
+          id="name"
+          placeholder="Kart Numarası"
+        
+        />
+        
+      </div>
+
+      <div class="mb-3">
+        <label for="accountNumber" class="form-label">Kart Numarası</label>
+        <input
+          type="number"
+          class="form-control"
+         [(ngModel)]="accountNumber"
+          id="accountNumber"
+          placeholder="Kart Numarası"
+          
+        />
+        
+      </div>
+
+      <div class="mb-3">
+        <label for="month" class="form-label">Ay</label>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="month"
+          id="month"
+          placeholder="ay"
+         
+        />       
+        <label for="year" class="form-label">Yıl</label>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="year"
+          id="year"
+          placeholder="Kart Numarası"
+          
+        />      
+      </div>
+
+      <div class="mb-3">
+        <label for="cvv" class="form-label">Cvv</label>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="cvv"
+          id="cvv"
+          placeholder="cvv"
+          
+        />      
+      </div>
+      
+    
+    <button type="button" (click)="payRental()" class="btn btn-warning">Öde</button>
+  </div>

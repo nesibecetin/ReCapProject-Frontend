@@ -22,7 +22,7 @@
 
   </div>
   <div class="col-md-4">
- <app-rental></app-rental>
+ <app-rental [carDetail] = "CarDetail"></app-rental>
 </div>
 </div>
 
@@ -39,13 +39,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let carDetail of carDetails">
-        <td>{{ carDetail.brandName }}</td>
-        <td>{{ carDetail.carName }}</td>
-        <td>{{ carDetail.colorName }}</td>
-        <td>{{ carDetail.dailyPrice }}</td>
-        <td>{{ carDetail.description }}</td>
-        <td><button type="type" routerLink="/car/edit/{{carDetail.carId}}"  class="btn btn-warning">Güncelle</button></td>
+      <tr *ngIf="CarDetail" >
+        <td>{{ CarDetail.brandName }}</td>
+        <td>{{ CarDetail.carName }}</td>
+        <td>{{ CarDetail.colorName }}</td>
+        <td>{{ CarDetail.dailyPrice }}</td>
+        <td>{{ CarDetail.description }}</td>
+        <td><button type="type" routerLink="/car/edit/{{CarDetail.carId}}"  class="btn btn-warning">Güncelle</button></td>
       </tr>
     </tbody>
   </table>
