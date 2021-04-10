@@ -1,0 +1,96 @@
+<body class="text-center">
+  <main class="form-signup">
+    <form [formGroup]="registerForm">
+      <img
+        class="mb-4"
+        src="/docs/5.0/assets/brand/bootstrap-logo.svg"
+        alt=""
+        width="72"
+        height="57"
+      />
+      <h1 class="h3 mb-3 fw-normal">Kayıt Ol</h1>
+      <div class="form-floating">
+        <input
+          formControlName="firstName"
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          placeholder="john"
+          [ngClass]="{
+            'is-invalid': form.firstName.touched || form.firstName.dirty
+          }"
+        />
+        <label for="floatingInput">Ad </label>
+        <div *ngIf="form.firstName.errors" class="invalid-feedback">
+          <div *ngIf="form.firstName.errors.required">Ad Zorunlu</div>
+        </div>
+      </div>
+      <div class="form-floating">
+        <input
+          formControlName="lastName"
+          type="text"
+          class="form-control"
+          id="lastName"
+          placeholder="doe"
+          [ngClass]="{
+            'is-invalid': form.lastName.touched || form.lastName.dirty
+          }"
+        />
+        <label for="lastName">Soyad </label>
+        <div *ngIf="form.lastName.errors" class="invalid-feedback">
+          <div *ngIf="form.lastName.errors.required">Soyad Zorunlu</div>
+        </div>
+      </div>
+
+      <div class="form-floating">
+        <input
+          formControlName="email"
+          type="e-mail"
+          class="form-control"
+          id="email"
+          placeholder="name@example.com"
+          [ngClass]="{
+            'is-invalid': form.email.touched || form.email.dirty
+          }"
+        />
+        <label for="email">Email </label>
+        <div *ngIf="form.email.errors" class="invalid-feedback">
+          <div *ngIf="form.email.errors.required">Email Zorunlu</div>
+          <div *ngIf="form.email.errors.email">Geçerli Değil</div>
+        </div>
+      </div>
+      <div class="form-floating">
+        <input
+          formControlName="password"
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="Password"
+          [ngClass]="{
+            'is-invalid': form.password.touched || form.password.dirty
+          }"
+        />
+        <label for="password">Password</label>
+        <div *ngIf="form.password.errors" class="invalid-feedback">
+          <div *ngIf="form.password.errors.required">Şifre Zorunlu</div>
+        </div>
+      </div>
+
+      <div>
+        <button
+          type="button"
+          (click)="register()"
+          class="w-100 btn btn-lg btn-primary"
+        >
+          Kayıt Ol
+        </button>
+      </div>
+      <div class="mb-3">
+        <label> Bir hesabınız var mı? </label>&nbsp;
+        <label routerLink="/login" type="submit"> Giriş Yap </label>
+      </div>
+      <div></div>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+    </form>
+  </main>
+</body>
