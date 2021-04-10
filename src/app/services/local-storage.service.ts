@@ -21,4 +21,12 @@ export class LocalStorageService {
   removeItem(key: string) {
     localStorage.removeItem(key);
   }
+  get(value:string){
+    var result = localStorage.getItem(value);
+    if (result) {
+      return result
+    }else{
+      return undefined
+    }
+  }
 }

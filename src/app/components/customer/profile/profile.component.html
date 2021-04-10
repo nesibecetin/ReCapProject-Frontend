@@ -1,0 +1,71 @@
+<div class="card">
+    <div class="card-header">Bilgileri Güncelle</div>
+    <div class="card-body">
+      <form [formGroup]="profileFrom">  
+        <div class="mb-3">
+          <label for="firstName" class="form-label">Ad</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="firstName"
+            id="firstName"
+            placeholder="Ad"
+            [ngClass]="{
+              'is-invalid': form.firstName.touched || form.firstName.dirty
+            }"
+          />
+          <div *ngIf="form.firstName.errors" class="invalid-feedback">
+            <div *ngIf="form.firstName.errors.required">
+              Ad Zorunlu !
+            </div>
+          </div>
+        </div>
+  
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Soyad</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="lastName"
+            id="lastName"
+            placeholder="açıklama"
+            [ngClass]="{
+              'is-invalid': form.lastName.touched || form.lastName.dirty
+            }"
+          />
+          <div *ngIf="form.lastName.errors" class="invalid-feedback">
+            <div *ngIf="form.lastName.errors.required">
+                Soyad Zorunlu
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              formControlName="email"
+              id="email"
+              placeholder="açıklama"
+              [ngClass]="{
+                'is-invalid': form.email.touched || form.email.dirty
+              }"
+            />
+            <div *ngIf="form.email.errors" class="invalid-feedback">
+              <div *ngIf="form.email.errors.required">
+                Email Zorunlu
+              </div>
+              <div *ngIf="form.email.errors.email">
+                Geçerli Değil
+              </div>
+            </div>
+          </div>
+  
+        
+      </form>
+    </div>
+    <div class="card-footer text-muted">
+      <button type="type" (click)="editProfile()" class="btn btn-warning">Güncelle</button>
+    </div>
+  </div>

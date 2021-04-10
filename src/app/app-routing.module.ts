@@ -10,6 +10,7 @@ import { ImageAddComponent } from './components/car-components/image-add/image-a
 import { ColorAddComponent } from './components/color-component/color-add/color-add.component';
 import { ColorEditComponent } from './components/color-component/color-edit/color-edit.component';
 import { CustomerComponent } from './components/customer/customer.component';
+import { ProfileComponent } from './components/customer/profile/profile.component';
 import { LoginComponent } from './components/login/login.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -41,6 +42,7 @@ const routes: Routes = [
   {path:"rental",component:RentalComponent},
   {path:"customer",component:CustomerComponent},
   {path:"payment/:rental",component:PaymentComponent},
+  {path:"profile",component:ProfileComponent},
   
 
   

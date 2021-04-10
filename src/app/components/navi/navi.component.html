@@ -1,32 +1,56 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom: 2rem;">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+<style>
+  a {
+    color: black;
+  }
+</style>
+<nav
+  class="navbar navbar-expand-lg navbar-light"
+  style="margin-bottom: 2rem; background-color: #ffc107"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Araç Kiralama</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown" *ngIf="isAuthenticated()">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          ><i
+            style="margin-right: 10px; font-size: 1.2rem"
+            class="fas fa-user-circle"
+          ></i
+          ><strong *ngIf="user"
+            >{{ user.firstName }} {{ user.lastName }}</strong
+          >
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li>
+            <a routerLink="profile" class="dropdown-item">Profili Düzenle</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>
+          <li><a class="dropdown-item" (click)="logout()">Çıkış Yap</a></li>
         </ul>
-      </div>
-    </div>
-  </nav>
+      </li>
+      <li class="nav-item" *ngIf="isAuthenticated() == false">
+        <a class="nav-link" routerLink="login"><strong>Giriş Yap</strong></a>
+      </li>
+      <li class="nav-item" *ngIf="isAuthenticated() == false">
+        <a class="nav-link" routerLink="register"><strong>Kayıt Ol</strong></a>
+      </li>
+    </ul>
+  </div>
+</nav>
