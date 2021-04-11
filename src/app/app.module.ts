@@ -30,6 +30,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/customer/profile/profile.component';
+import { ColorDirective } from './directives/color.directive';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ProfileComponent } from './components/customer/profile/profile.componen
     ColorEditComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    ColorDirective
    
   ],
   imports: [
