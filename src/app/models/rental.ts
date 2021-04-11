@@ -4,7 +4,7 @@ export interface Rental{
     brandName?:string;
     firstName?:string;
     lastName?:string;
-    customerId:number;
+    customerId?:number;
     rentDate:Date;
     returnDate:Date;
 }

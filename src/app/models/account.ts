@@ -1,5 +1,6 @@
 export interface Account{
     accountId:number;
+    userId:number;
     customerId?:number;
     balance:number;
     month:number;

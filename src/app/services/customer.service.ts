@@ -19,4 +19,9 @@ apiUrl="https://localhost:44360/api/";
     return this.httpClient.get<ListResponseModel<Customer>>(newPath);
 
   }
+  getCustomerByUserId(UserId:number):Observable<ListResponseModel<Customer>> {
+    let newPath = this.apiUrl + "customers/getbyuserid?id="+UserId
+    return this.httpClient.get<ListResponseModel<Customer>>(newPath);
+
+  }
 }

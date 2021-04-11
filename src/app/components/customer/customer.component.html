@@ -3,12 +3,13 @@
         <tr>
             <th>Id</th>
             <th>companyName</th>
-           
+            <th>findexPoint</th>
         </tr>
     </thead>
     <tr *ngFor="let customer of customers">
         <td>{{customer.customerId}}</td>
         <td>{{customer.companyName}}</td>
+        <td>{{customer.findexPoint}}</td>
         
     </tr>
 </table>

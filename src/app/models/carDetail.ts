@@ -6,4 +6,5 @@ export interface CarDetails{
     dailyPrice:number;
     description:string;
     imagePath:string;
+    findexPoint:number;
 }

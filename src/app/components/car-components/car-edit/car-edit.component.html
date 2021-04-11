@@ -123,6 +123,25 @@
         </div>
       </div>
 
+      <div class="mb-3">
+        <label for="findexPoint" class="form-label">FindexPoint</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="findexPoint"
+          id="findexPoint"
+          placeholder="findex point"
+          [ngClass]="{
+            'is-invalid': form.findexPoint.touched || form.findexPoint.dirty
+          }"
+        />
+        <div *ngIf="form.findexPoint.errors" class="invalid-feedback">
+          <div *ngIf="form.findexPoint.errors.required">
+            findexPoint Zorunlu
+          </div>
+        </div>
+      </div>
+
       
     </form>
   </div>

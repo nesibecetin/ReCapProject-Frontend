@@ -34,13 +34,7 @@
           <input min="{{ getDate(2) }}" value="{{ getDate(2) }}"
           [(ngModel)]="returnDate" type="date" class="form-control">
         </div>
-        <div style="margin-bottom: 1rem;">
-          <label>Müşteri Adı</label>
-          <select class="form-select" 
-               [(ngModel)]="customerId" aria-label="Default select example">
-            <option *ngFor="let customer of customers" [value]="customer.customerId" [value]="customer.customerId">{{customer.customerId}}</option>     
-          </select>
-        </div>
+       
         <div  style="margin-bottom: 1rem;" >
           <button
          

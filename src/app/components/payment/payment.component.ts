@@ -12,6 +12,7 @@ import { RentalService } from 'src/app/services/rental.service';
 import { CustomerService } from 'src/app/services/customer.service';
 import { Card } from 'src/app/models/card';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-payment',
@@ -24,7 +25,7 @@ export class PaymentComponent implements OnInit {
   customer: Customer;
   carDetail: CarDetails;
   customerId: number;
-  account: Account[]=[];
+  account: Account[] = [];
   card: Account;
   amountOfPayment: number = 0;
   accountNumber: bigint;
@@ -34,7 +35,6 @@ export class PaymentComponent implements OnInit {
   cvv: number;
   balance: number;
   accountId: number;
-  
 
   constructor(
     private formBuilder: FormBuilder,
@@ -44,11 +44,11 @@ export class PaymentComponent implements OnInit {
     private accountService: AccountService,
     private rentalService: RentalService,
     private activatedRoute: ActivatedRoute,
-    private customerService: CustomerService
+    private customerService: CustomerService,
+    private authService:AuthService
   ) {}
 
   ngOnInit(): void {
-    
     this.activatedRoute.params.subscribe((params) => {
       if (params['rental']) {
         this.rental = JSON.parse(params['rental']);
@@ -58,7 +58,7 @@ export class PaymentComponent implements OnInit {
       }
     });
   }
-  
+
   getCarsDetailsById() {
     this.carDetailsService
       .getCarDetailsById(this.rental.carId)
@@ -67,12 +67,10 @@ export class PaymentComponent implements OnInit {
         this.paymentCalculator();
       });
   }
-  
-    
-  
+
   getAccountDetailById() {
     this.accountService
-      .getAccountById(this.rental.customerId)
+      .getAccountById(this.authService.getUserId())
       .subscribe((response) => {
         this.card = response.data[0];
       });
@@ -106,23 +104,36 @@ export class PaymentComponent implements OnInit {
       name: this.name,
       cvv: this.cvv,
       balance: this.card.balance,
-      customerId: this.rental.customerId,
+      
+      userId:this.authService.getUserId(),
     };
-   
-    if(this.card.month===this.month &&this.card.year === this.year&&this.card.accountNumber===this.accountNumber&&
-      this.card.cvv===this.cvv&&this.card.name===this.name){
+
+    if (
+      this.card.month === this.month &&
+      this.card.year === this.year &&
+      this.card.accountNumber === this.accountNumber &&
+      this.card.cvv === this.cvv &&
+      this.card.name === this.name
+    ) {
       if (this.card.balance >= this.amountOfPayment) {
         this.card.balance = this.card.balance - this.amountOfPayment;
         account.balance = this.card.balance;
-  
+
         console.log(this.card.balance);
         this.accountService.updateAccount(account).subscribe((response) => {
-          this.rentalService.addRental(this.rental).subscribe((res) => {
-            this.toastrService.success(response.message, 'başarılı');
-            this.toastrService.success(res.message, 'başarılı');
-          });
+          this.rentalService.addRental(this.rental).subscribe(
+            (res) => {
+              this.toastrService.success(response.message, 'başarılı');
+              this.toastrService.success(res.message, 'başarılı');
+             
+            },
+            (responseError) => {
+              this.toastrService.error(responseError.error, 'Hata');
+              console.log(responseError)
+            }
+          );
         });
-  
+
         console.log(this.rental);
       } else {
         console.log(this.card.balance);
@@ -131,21 +142,9 @@ export class PaymentComponent implements OnInit {
           'Hata'
         );
       }
-
+    } else {
+      this.toastrService.error('Bilgiler Onaylanmadı', 'Hata');
+      console.log('bilgiler onaylanmdaı.');
     }
-    else{
-      console.log("bilgiler onaylanmdaı.")
-    }
-    
-      
-
-    
-    
-     
-
-    
-    
-
-    
   }
 }

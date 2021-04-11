@@ -66,7 +66,8 @@ export class CarEditComponent implements OnInit {
       colorId:["",[Validators.required]],
       modelYear:["",[Validators.required]],
       dailyPrice:["",[Validators.required]],
-      description :["",[Validators.required]]
+      description :["",[Validators.required]],
+      findexPoint:["",[Validators.required]]
 
     })
   }
@@ -80,7 +81,8 @@ export class CarEditComponent implements OnInit {
         brandId: this.cars.brandId,
         modelYear: this.cars.modelYear,
         dailyPrice: this.cars.dailyPrice,
-        description: this.cars.description
+        description: this.cars.description,
+        findexPoint:this.cars.findexPoint
         
       })
      

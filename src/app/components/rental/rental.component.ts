@@ -6,6 +6,7 @@ import { Car } from 'src/app/models/car';
 import { CarDetails } from 'src/app/models/carDetail';
 import { Customer } from 'src/app/models/customer';
 import { Rental } from 'src/app/models/rental';
+import { AuthService } from 'src/app/services/auth.service';
 import { CustomerService } from 'src/app/services/customer.service';
 import { RentalService } from 'src/app/services/rental.service';
 
@@ -18,6 +19,7 @@ export class RentalComponent implements OnInit {
   rentals:Rental[]=[];
   dataLoaded = false;
   customers: Customer[] = [];
+  customer:Customer;
   carDetails: CarDetails[]=[];
   @Input() carDetail:CarDetails;
   customerId: number;
@@ -27,11 +29,13 @@ export class RentalComponent implements OnInit {
   constructor(private rentalService:RentalService,
     private customerService: CustomerService,
     private toastrService: ToastrService,
-    private router: Router) { }
+    private router: Router,
+    private authService:AuthService) { }
 
   ngOnInit(): void {
     this.getRentals();
     this.getCustomer();
+    this.getCustomerByUserId();
   }
   getRentals(){
     this.rentalService.getRentals().subscribe(response=>{
@@ -45,6 +49,14 @@ export class RentalComponent implements OnInit {
       this.customers = response.data;
     });
   }
+  getCustomerByUserId() {
+    this.customerService
+      .getCustomerByUserId(this.authService.getUserId())
+      .subscribe((response) => {
+        this.customer = response.data[0];
+      });
+  }
+
   getDate(day: number) {
     var today = new Date();
     today.setDate(today.getDate() + day);
@@ -59,7 +71,7 @@ export class RentalComponent implements OnInit {
     } else {
       let rental: Rental = {
         carId:this.carDetail.carId,
-        customerId: parseInt(this.customerId.toString()),
+        customerId: this.customer.customerId,
         rentDate: this.rentDate,
         returnDate: this.returnDate,
       };
