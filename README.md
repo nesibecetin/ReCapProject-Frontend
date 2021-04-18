@@ -1,8 +1,8 @@
-![Ekran Alıntısı5](https://user-images.githubusercontent.com/33204265/115149050-ea21e700-a06a-11eb-8c23-78fbe2d39c67.PNG)
 ![Ekran Alıntısı](https://user-images.githubusercontent.com/33204265/114323203-df2bfb80-9b2c-11eb-886e-eabdb29c96c6.PNG)
 ![Ekran Alıntısı2](https://user-images.githubusercontent.com/33204265/114323209-e81ccd00-9b2c-11eb-855b-87821d3683ba.PNG)
 ![Ekran Alıntısı3](https://user-images.githubusercontent.com/33204265/114323214-ec48ea80-9b2c-11eb-99c1-4f4ed755afd5.PNG)
 ![Ekran Alıntısı4](https://user-images.githubusercontent.com/33204265/114323216-ece18100-9b2c-11eb-913d-3c8f246837bc.PNG)
+![Ekran Alıntısı5](https://user-images.githubusercontent.com/33204265/115149050-ea21e700-a06a-11eb-8c23-78fbe2d39c67.PNG)
 ![Ekran Alıntısı6](https://user-images.githubusercontent.com/33204265/114323220-eeab4480-9b2c-11eb-9865-abb25912d861.PNG)
 # ReCapProject
 
