@@ -1,8 +1,9 @@
-![Ekran Alıntısı](https://user-images.githubusercontent.com/33204265/114323203-df2bfb80-9b2c-11eb-886e-eabdb29c96c6.PNG)
-![Ekran Alıntısı2](https://user-images.githubusercontent.com/33204265/114323209-e81ccd00-9b2c-11eb-855b-87821d3683ba.PNG)
-![Ekran Alıntısı3](https://user-images.githubusercontent.com/33204265/114323214-ec48ea80-9b2c-11eb-99c1-4f4ed755afd5.PNG)
-![Ekran Alıntısı4](https://user-images.githubusercontent.com/33204265/114323216-ece18100-9b2c-11eb-913d-3c8f246837bc.PNG)
-![Ekran Alıntısı5](https://user-images.githubusercontent.com/33204265/115149050-ea21e700-a06a-11eb-8c23-78fbe2d39c67.PNG)
+![Ekran Alıntısı12](https://user-images.githubusercontent.com/33204265/115176970-d4e2a200-a0d6-11eb-872b-03394ded8985.PNG)
+![Ekran Alıntısı13](https://user-images.githubusercontent.com/33204265/115176972-d613cf00-a0d6-11eb-98c2-de3a5b7e5534.PNG)
+![Ekran Alıntısı14](https://user-images.githubusercontent.com/33204265/115176984-dc09b000-a0d6-11eb-997f-6fd9e8c31e17.PNG)
+![Ekran Alıntısı15](https://user-images.githubusercontent.com/33204265/115176993-e166fa80-a0d6-11eb-88a8-eb20b5f5a90b.PNG)
+![Ekran Alıntısı16](https://user-images.githubusercontent.com/33204265/115176995-e1ff9100-a0d6-11eb-8352-5a3a02aaeb5c.PNG)
+![Ekran Alıntısı17](https://user-images.githubusercontent.com/33204265/115176996-e330be00-a0d6-11eb-887b-4ff215ca1bf9.PNG)
 ![Ekran Alıntısı6](https://user-images.githubusercontent.com/33204265/114323220-eeab4480-9b2c-11eb-9865-abb25912d861.PNG)
 # ReCapProject
 
